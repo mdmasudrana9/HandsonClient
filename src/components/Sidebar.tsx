@@ -45,23 +45,11 @@ const Sidebar = () => {
         <NavItem to="/all-teams" icon="👥" label="Teams" isOpen={isOpen} />
         <NavItem
           to="/create-req"
-          icon="👥"
+          icon="🛠"
           label="Create Request"
           isOpen={isOpen}
         />
-        <NavItem to="/all-req" icon="👥" label="Request" isOpen={isOpen} />
-        <NavItem
-          to="/dashboard/profile"
-          icon="👤"
-          label="Profile"
-          isOpen={isOpen}
-        />
-        <NavItem
-          to="/dashboard/users"
-          icon="🔧"
-          label="User Management"
-          isOpen={isOpen}
-        />
+        <NavItem to="/all-req" icon="🚀" label="Request" isOpen={isOpen} />
       </nav>
     </div>
   );
