@@ -31,7 +31,7 @@ const UpdateEventForm = () => {
     const fetchEvent = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/v1/events/${_id}`
+          `https://hands-on-iota.vercel.app/api/v1/events/${_id}`
         );
         const eventData = response.data;
         console.log(eventData?.data?.date);
@@ -57,7 +57,7 @@ const UpdateEventForm = () => {
   const updateEventMutation = useMutation({
     mutationFn: async (updatedEvent: EventFormData) => {
       const response = await axios.patch(
-        `http://localhost:5000/api/v1/events/${_id}`,
+        `https://hands-on-iota.vercel.app/api/v1/events/${_id}`,
         updatedEvent
       );
 
@@ -193,7 +193,7 @@ const UpdateEventForm = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#1E2939] text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
             >
               Update Event
             </button>

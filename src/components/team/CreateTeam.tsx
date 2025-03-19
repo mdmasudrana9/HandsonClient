@@ -24,7 +24,7 @@ const TeamForm = () => {
   const createTeamMutation = useMutation({
     mutationFn: async (newTeam: TeamFormData) => {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/team/create-team",
+        "https://hands-on-iota.vercel.app/api/v1/team/create-team",
         { ...newTeam }
       );
       return response.data;
@@ -133,7 +133,7 @@ const TeamForm = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#1E2939] text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
             >
               Create Team
             </button>

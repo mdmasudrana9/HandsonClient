@@ -29,7 +29,7 @@ const CreateHelpRequest = () => {
   const createHelpRequestMutation = useMutation({
     mutationFn: async (newHelpRequest: HelpRequestFormData) => {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/helpRequest/create-request",
+        "https://hands-on-iota.vercel.app/api/v1/helpRequest/create-request",
         newHelpRequest
       );
       return response.data;
@@ -44,7 +44,7 @@ const CreateHelpRequest = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate("/help-requests");
+      navigate("/all-req");
     },
     onError: (error) => {
       console.error("Error creating help request:", error);
@@ -173,7 +173,7 @@ const CreateHelpRequest = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#1E2939] text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
             >
               Create Help Request
             </button>

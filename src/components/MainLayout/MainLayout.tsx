@@ -10,12 +10,18 @@ const MainLayout = () => {
       {/* Main Content */}
       <div className="flex flex-col flex-1">
         {/* Header */}
-        <header className="h-16 bg-white shadow-md flex items-center px-6">
-          <h1 className="text-xl font-semibold text-gray-700">Dashboard</h1>
+        {/* Header */}
+        <header className="bg-[#1E2935] text-white z-50">
+          <div className="container pl-5  py-6">
+            <h1 className="text-2xl font-bold">HandsOn Dashboard</h1>
+            <p className="mt-2 text-sm">
+              Making a difference in your community, one helping hand at a time
+            </p>
+          </div>
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-6">
+        <main className="">
           <div className=" ">
             <Outlet />
           </div>

@@ -17,7 +17,7 @@ const Sidebar = () => {
             !isOpen && "hidden"
           }`}
         >
-          Admin Panel
+          Handson
         </h2>
         <button
           onClick={() => setIsOpen(!isOpen)}

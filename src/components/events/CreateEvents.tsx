@@ -27,7 +27,7 @@ const EventForm = () => {
   const createEventMutation = useMutation({
     mutationFn: async (newEvent: EventFormData) => {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/events/create-event",
+        "https://hands-on-iota.vercel.app/api/v1/events/create-event",
         { ...newEvent, createdBy: "user12345", attendees: [] } // ✅ Add extra fields
       );
       return response.data;
@@ -161,7 +161,7 @@ const EventForm = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#1E2939] text-white py-2 rounded-md text-sm font-medium hover:bg-blue-400 transition"
               // ✅ Disable button while submitting
             >
               Create Event

@@ -30,7 +30,7 @@ const UpdateTeamForm = () => {
     const fetchTeam = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/v1/team/${_id}`
+          `https://hands-on-iota.vercel.app/api/v1/team/${_id}`
         );
         const teamData = response.data;
         console.log(teamData?.data);
@@ -54,7 +54,7 @@ const UpdateTeamForm = () => {
   const updateTeamMutation = useMutation({
     mutationFn: async (updatedTeam: TeamFormData) => {
       const response = await axios.patch(
-        `http://localhost:5000/api/v1/team/${_id}`,
+        `https://hands-on-iota.vercel.app/api/v1/team/${_id}`,
         updatedTeam
       );
 
@@ -166,7 +166,7 @@ const UpdateTeamForm = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#1E2939] text-white py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
             >
               Update Team
             </button>

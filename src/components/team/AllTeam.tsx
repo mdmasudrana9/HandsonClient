@@ -2,6 +2,7 @@ import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../LoadingSpinner";
 
 type Team = {
   _id: string;
@@ -17,7 +18,9 @@ type Team = {
 };
 
 const fetchTeams = async () => {
-  const { data } = await axios.get("http://localhost:5000/api/v1/team");
+  const { data } = await axios.get(
+    "https://hands-on-iota.vercel.app/api/v1/team"
+  );
   return data;
 };
 
@@ -32,7 +35,7 @@ const AllTeams = () => {
 
   const deleteTeamMutation = useMutation({
     mutationFn: async (id: string) => {
-      await axios.delete(`http://localhost:5000/api/v1/team/${id}`);
+      await axios.delete(`https://hands-on-iota.vercel.app/api/v1/team/${id}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["teams"] });
@@ -71,7 +74,7 @@ const AllTeams = () => {
     });
   };
 
-  if (isLoading) return <p>Loading teams...</p>;
+  if (isLoading) return <LoadingSpinner />;
   if (isError) return <p className="text-red-500">Failed to load teams.</p>;
 
   return (

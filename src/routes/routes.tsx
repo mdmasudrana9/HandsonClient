@@ -9,6 +9,7 @@ import CreateTeam from "../components/team/CreateTeam";
 import UpdateTeamForm from "../components/team/UpdateTeam";
 import CreateHelpRequest from "../components/helpReq/CreateReq";
 import AllHelpRequests from "../components/helpReq/AllReq";
+import Dashboard from "../components/DashBoardHome";
 // import Login from "../pages/Login";
 // import Registration from "../pages/Registration";
 // import { routerGenerator } from "../utils/routesGenerator";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
       {
         path: "/create-events",
         element: <EventForm />,

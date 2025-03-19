@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import LoadingSpinner from "../LoadingSpinner";
 
 // Define the HelpRequest type
 type HelpRequest = {
@@ -13,7 +14,9 @@ type HelpRequest = {
 
 // Fetch help request data using TanStack Query
 const fetchHelpRequests = async () => {
-  const { data } = await axios.get("http://localhost:5000/api/v1/helpRequest");
+  const { data } = await axios.get(
+    "https://hands-on-iota.vercel.app/api/v1/helpRequest"
+  );
   return data;
 };
 
@@ -25,10 +28,7 @@ const AllHelpRequests = () => {
 
   const helpRequests: HelpRequest[] = data?.data || [];
 
-  if (isLoading)
-    return (
-      <p className="text-gray-700 text-center">Loading help requests...</p>
-    );
+  if (isLoading) return <LoadingSpinner />;
   if (isError)
     return (
       <p className="text-red-500 text-center">Failed to load help requests.</p>

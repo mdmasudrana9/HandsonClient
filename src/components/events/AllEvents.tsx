@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; // Import SweetAlert2
+import LoadingSpinner from "../LoadingSpinner";
 
 // Define the Event type
 type Event = {
@@ -19,7 +20,9 @@ type Event = {
 
 // Fetch event data using TanStack Query
 const fetchEvents = async () => {
-  const { data } = await axios.get("http://localhost:5000/api/v1/events");
+  const { data } = await axios.get(
+    "https://hands-on-iota.vercel.app/api/v1/events"
+  );
   return data;
 };
 
@@ -35,7 +38,9 @@ const AllEvents = () => {
 
   const deleteEventMutation = useMutation({
     mutationFn: async (id: string) => {
-      await axios.delete(`http://localhost:5000/api/v1/events/${id}`);
+      await axios.delete(
+        `https://hands-on-iota.vercel.app/api/v1/events/${id}`
+      );
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["events"] });
@@ -77,8 +82,7 @@ const AllEvents = () => {
     });
   };
 
-  if (isLoading)
-    return <p className="text-gray-700 text-center">Loading events...</p>;
+  if (isLoading) return <LoadingSpinner />;
   if (isError)
     return <p className="text-red-500 text-center">Failed to load events.</p>;
 
@@ -86,8 +90,9 @@ const AllEvents = () => {
     <div className="p-4">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">All Events</h2>
 
+      {/* Make table scrollable on small screens */}
       <div className="overflow-x-auto">
-        <table className="w-full border border-gray-200 rounded-lg text-xs md:text-sm">
+        <table className="min-w-full border border-gray-200 rounded-lg text-xs md:text-sm">
           <thead className="bg-gray-100 text-gray-700">
             <tr className="text-left">
               <th className="py-2 px-1 md:px-3 border border-gray-200">
