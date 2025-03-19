@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
@@ -13,11 +13,11 @@ const Sidebar = () => {
       {/* Sidebar Header */}
       <div className="flex items-center justify-between px-3 py-3 border-b border-gray-700">
         <h2
-          className={`text-sm font-semibold transition-all ${
+          className={`text-sm cursor-pointer font-semibold transition-all ${
             !isOpen && "hidden"
           }`}
         >
-          Handson
+          <Link to="/">HandsOn</Link>
         </h2>
         <button
           onClick={() => setIsOpen(!isOpen)}

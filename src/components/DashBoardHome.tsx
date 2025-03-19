@@ -57,7 +57,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Welcome Card */}
-      <div className="container mx-auto px-4 py-6">
+      <div className="container  px-8 py-6">
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <h2 className="text-xl font-semibold text-blue-800">
             Welcome to HandsOn!
@@ -88,7 +88,7 @@ const Dashboard = () => {
       </div>
 
       {/* Dashboard Grid */}
-      <div className="container mx-auto px-4 pb-10">
+      <div className="container px-8 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Your Impact */}
           <div className="bg-white rounded-lg shadow-md p-6 text-sm">
